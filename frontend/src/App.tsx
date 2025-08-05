@@ -6,7 +6,7 @@ import anitaMaxWynnMp3 from "./assets/anitaMaxWynn.mp3";
 function App() {
 
   let song: string = "hello";
-
+  const WinAudio = new Audio(anitaMaxWynnMp3)
   const [isWin, setIsWin] = useState(false);
 
   const [guesses, setGuesses] = useState<string[]>([]);
@@ -19,6 +19,7 @@ function App() {
 
     if (inputValue.trim().toLowerCase() === song.toLowerCase()){
       setIsWin(true);
+      WinAudio.play();
     }
 
     setGuesses (prev => {
@@ -87,9 +88,6 @@ function App() {
             className='mt-4 rounded-lg'
             src={anitaMaxWynn} alt="Zesty Drake">
             </img>
-
-            <audio src = {anitaMaxWynnMp3}>
-            </audio>
 
             </div>
           </div>
